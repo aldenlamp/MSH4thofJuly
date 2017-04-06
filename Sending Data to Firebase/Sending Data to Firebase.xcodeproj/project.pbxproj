@@ -1,0 +1,713 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		461C341DC7315A535A4FE7D8 /* Pods_Sending_Data_to_FirebaseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD00A7FFB84A588AF1B43DCD /* Pods_Sending_Data_to_FirebaseTests.framework */; };
+		BF81FFD01E7A025E00C53D37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF81FFCF1E7A025E00C53D37 /* AppDelegate.swift */; };
+		BF81FFD21E7A025E00C53D37 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF81FFD11E7A025E00C53D37 /* ViewController.swift */; };
+		BF81FFD51E7A025E00C53D37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF81FFD31E7A025E00C53D37 /* Main.storyboard */; };
+		BF81FFD71E7A025E00C53D37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF81FFD61E7A025E00C53D37 /* Assets.xcassets */; };
+		BF81FFDA1E7A025E00C53D37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF81FFD81E7A025E00C53D37 /* LaunchScreen.storyboard */; };
+		BF81FFE51E7A025E00C53D37 /* Sending_Data_to_FirebaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF81FFE41E7A025E00C53D37 /* Sending_Data_to_FirebaseTests.swift */; };
+		BF81FFF01E7A025E00C53D37 /* Sending_Data_to_FirebaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF81FFEF1E7A025E00C53D37 /* Sending_Data_to_FirebaseUITests.swift */; };
+		BF81FFFE1E7A030400C53D37 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF81FFFD1E7A030400C53D37 /* GoogleService-Info.plist */; };
+		D054DFB6FF59770C4C139C11 /* Pods_Sending_Data_to_Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DE79B7134BEA94F6AE1C25 /* Pods_Sending_Data_to_Firebase.framework */; };
+		E9613D39FB0842FA8BE73E09 /* Pods_Sending_Data_to_FirebaseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E37D5B9AB86672D3C6359D /* Pods_Sending_Data_to_FirebaseUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BF81FFE11E7A025E00C53D37 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF81FFC41E7A025E00C53D37 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF81FFCB1E7A025E00C53D37;
+			remoteInfo = "Sending Data to Firebase";
+		};
+		BF81FFEC1E7A025E00C53D37 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF81FFC41E7A025E00C53D37 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF81FFCB1E7A025E00C53D37;
+			remoteInfo = "Sending Data to Firebase";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0A093546A1398F226A15024A /* Pods-Sending Data to Firebase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sending Data to Firebase.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sending Data to Firebase/Pods-Sending Data to Firebase.release.xcconfig"; sourceTree = "<group>"; };
+		45040FF6630BAF43990D8B52 /* Pods-Sending Data to Firebase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sending Data to Firebase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sending Data to Firebase/Pods-Sending Data to Firebase.debug.xcconfig"; sourceTree = "<group>"; };
+		5CF315D6FC7B28D468EC691C /* Pods-Sending Data to FirebaseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sending Data to FirebaseTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sending Data to FirebaseTests/Pods-Sending Data to FirebaseTests.debug.xcconfig"; sourceTree = "<group>"; };
+		93DE79B7134BEA94F6AE1C25 /* Pods_Sending_Data_to_Firebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sending_Data_to_Firebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD00A7FFB84A588AF1B43DCD /* Pods_Sending_Data_to_FirebaseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sending_Data_to_FirebaseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF81FFCC1E7A025E00C53D37 /* Sending Data to Firebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sending Data to Firebase.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF81FFCF1E7A025E00C53D37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BF81FFD11E7A025E00C53D37 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BF81FFD41E7A025E00C53D37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BF81FFD61E7A025E00C53D37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BF81FFD91E7A025E00C53D37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BF81FFDB1E7A025E00C53D37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF81FFE01E7A025E00C53D37 /* Sending Data to FirebaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sending Data to FirebaseTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF81FFE41E7A025E00C53D37 /* Sending_Data_to_FirebaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sending_Data_to_FirebaseTests.swift; sourceTree = "<group>"; };
+		BF81FFE61E7A025E00C53D37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF81FFEB1E7A025E00C53D37 /* Sending Data to FirebaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sending Data to FirebaseUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF81FFEF1E7A025E00C53D37 /* Sending_Data_to_FirebaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sending_Data_to_FirebaseUITests.swift; sourceTree = "<group>"; };
+		BF81FFF11E7A025E00C53D37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF81FFFD1E7A030400C53D37 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D8CBA4E9F660E2B1F669E9EB /* Pods-Sending Data to FirebaseUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sending Data to FirebaseUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sending Data to FirebaseUITests/Pods-Sending Data to FirebaseUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DB38B142EA745737C9A3B7CA /* Pods-Sending Data to FirebaseUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sending Data to FirebaseUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sending Data to FirebaseUITests/Pods-Sending Data to FirebaseUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E1011A828D6E4D8B910FFE9E /* Pods-Sending Data to FirebaseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sending Data to FirebaseTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sending Data to FirebaseTests/Pods-Sending Data to FirebaseTests.release.xcconfig"; sourceTree = "<group>"; };
+		F5E37D5B9AB86672D3C6359D /* Pods_Sending_Data_to_FirebaseUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sending_Data_to_FirebaseUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BF81FFC91E7A025E00C53D37 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D054DFB6FF59770C4C139C11 /* Pods_Sending_Data_to_Firebase.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF81FFDD1E7A025E00C53D37 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				461C341DC7315A535A4FE7D8 /* Pods_Sending_Data_to_FirebaseTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF81FFE81E7A025E00C53D37 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9613D39FB0842FA8BE73E09 /* Pods_Sending_Data_to_FirebaseUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4905E8F52AC05FB4D98CEC57 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				45040FF6630BAF43990D8B52 /* Pods-Sending Data to Firebase.debug.xcconfig */,
+				0A093546A1398F226A15024A /* Pods-Sending Data to Firebase.release.xcconfig */,
+				5CF315D6FC7B28D468EC691C /* Pods-Sending Data to FirebaseTests.debug.xcconfig */,
+				E1011A828D6E4D8B910FFE9E /* Pods-Sending Data to FirebaseTests.release.xcconfig */,
+				DB38B142EA745737C9A3B7CA /* Pods-Sending Data to FirebaseUITests.debug.xcconfig */,
+				D8CBA4E9F660E2B1F669E9EB /* Pods-Sending Data to FirebaseUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		95AFEA4533C1331ED7279545 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93DE79B7134BEA94F6AE1C25 /* Pods_Sending_Data_to_Firebase.framework */,
+				AD00A7FFB84A588AF1B43DCD /* Pods_Sending_Data_to_FirebaseTests.framework */,
+				F5E37D5B9AB86672D3C6359D /* Pods_Sending_Data_to_FirebaseUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF81FFC31E7A025E00C53D37 = {
+			isa = PBXGroup;
+			children = (
+				BF81FFCE1E7A025E00C53D37 /* Sending Data to Firebase */,
+				BF81FFE31E7A025E00C53D37 /* Sending Data to FirebaseTests */,
+				BF81FFEE1E7A025E00C53D37 /* Sending Data to FirebaseUITests */,
+				BF81FFCD1E7A025E00C53D37 /* Products */,
+				4905E8F52AC05FB4D98CEC57 /* Pods */,
+				95AFEA4533C1331ED7279545 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BF81FFCD1E7A025E00C53D37 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF81FFCC1E7A025E00C53D37 /* Sending Data to Firebase.app */,
+				BF81FFE01E7A025E00C53D37 /* Sending Data to FirebaseTests.xctest */,
+				BF81FFEB1E7A025E00C53D37 /* Sending Data to FirebaseUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BF81FFCE1E7A025E00C53D37 /* Sending Data to Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				BF81FFCF1E7A025E00C53D37 /* AppDelegate.swift */,
+				BF81FFD11E7A025E00C53D37 /* ViewController.swift */,
+				BF81FFD31E7A025E00C53D37 /* Main.storyboard */,
+				BF81FFD61E7A025E00C53D37 /* Assets.xcassets */,
+				BF81FFD81E7A025E00C53D37 /* LaunchScreen.storyboard */,
+				BF81FFDB1E7A025E00C53D37 /* Info.plist */,
+				BF81FFFD1E7A030400C53D37 /* GoogleService-Info.plist */,
+			);
+			path = "Sending Data to Firebase";
+			sourceTree = "<group>";
+		};
+		BF81FFE31E7A025E00C53D37 /* Sending Data to FirebaseTests */ = {
+			isa = PBXGroup;
+			children = (
+				BF81FFE41E7A025E00C53D37 /* Sending_Data_to_FirebaseTests.swift */,
+				BF81FFE61E7A025E00C53D37 /* Info.plist */,
+			);
+			path = "Sending Data to FirebaseTests";
+			sourceTree = "<group>";
+		};
+		BF81FFEE1E7A025E00C53D37 /* Sending Data to FirebaseUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BF81FFEF1E7A025E00C53D37 /* Sending_Data_to_FirebaseUITests.swift */,
+				BF81FFF11E7A025E00C53D37 /* Info.plist */,
+			);
+			path = "Sending Data to FirebaseUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BF81FFCB1E7A025E00C53D37 /* Sending Data to Firebase */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF81FFF41E7A025E00C53D37 /* Build configuration list for PBXNativeTarget "Sending Data to Firebase" */;
+			buildPhases = (
+				735642047B2170D559CDC744 /* [CP] Check Pods Manifest.lock */,
+				BF81FFC81E7A025E00C53D37 /* Sources */,
+				BF81FFC91E7A025E00C53D37 /* Frameworks */,
+				BF81FFCA1E7A025E00C53D37 /* Resources */,
+				4D02383E0D49F5D9F13180F5 /* [CP] Embed Pods Frameworks */,
+				8EF2883AA0059EF5737B00BD /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Sending Data to Firebase";
+			productName = "Sending Data to Firebase";
+			productReference = BF81FFCC1E7A025E00C53D37 /* Sending Data to Firebase.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BF81FFDF1E7A025E00C53D37 /* Sending Data to FirebaseTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF81FFF71E7A025E00C53D37 /* Build configuration list for PBXNativeTarget "Sending Data to FirebaseTests" */;
+			buildPhases = (
+				3130F59520A33F6F206BA3CA /* [CP] Check Pods Manifest.lock */,
+				BF81FFDC1E7A025E00C53D37 /* Sources */,
+				BF81FFDD1E7A025E00C53D37 /* Frameworks */,
+				BF81FFDE1E7A025E00C53D37 /* Resources */,
+				D12A8356A36DA9B625A01F66 /* [CP] Embed Pods Frameworks */,
+				39A289F1D37193AF580A2B71 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF81FFE21E7A025E00C53D37 /* PBXTargetDependency */,
+			);
+			name = "Sending Data to FirebaseTests";
+			productName = "Sending Data to FirebaseTests";
+			productReference = BF81FFE01E7A025E00C53D37 /* Sending Data to FirebaseTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BF81FFEA1E7A025E00C53D37 /* Sending Data to FirebaseUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF81FFFA1E7A025E00C53D37 /* Build configuration list for PBXNativeTarget "Sending Data to FirebaseUITests" */;
+			buildPhases = (
+				94664921572259BDD4599D80 /* [CP] Check Pods Manifest.lock */,
+				BF81FFE71E7A025E00C53D37 /* Sources */,
+				BF81FFE81E7A025E00C53D37 /* Frameworks */,
+				BF81FFE91E7A025E00C53D37 /* Resources */,
+				FD8748D2E478798D29DABDA0 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF81FFED1E7A025E00C53D37 /* PBXTargetDependency */,
+			);
+			name = "Sending Data to FirebaseUITests";
+			productName = "Sending Data to FirebaseUITests";
+			productReference = BF81FFEB1E7A025E00C53D37 /* Sending Data to FirebaseUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BF81FFC41E7A025E00C53D37 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "alden lamp";
+				TargetAttributes = {
+					BF81FFCB1E7A025E00C53D37 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 9XWYL3K4YT;
+						ProvisioningStyle = Automatic;
+					};
+					BF81FFDF1E7A025E00C53D37 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BF81FFCB1E7A025E00C53D37;
+					};
+					BF81FFEA1E7A025E00C53D37 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BF81FFCB1E7A025E00C53D37;
+					};
+				};
+			};
+			buildConfigurationList = BF81FFC71E7A025E00C53D37 /* Build configuration list for PBXProject "Sending Data to Firebase" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BF81FFC31E7A025E00C53D37;
+			productRefGroup = BF81FFCD1E7A025E00C53D37 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BF81FFCB1E7A025E00C53D37 /* Sending Data to Firebase */,
+				BF81FFDF1E7A025E00C53D37 /* Sending Data to FirebaseTests */,
+				BF81FFEA1E7A025E00C53D37 /* Sending Data to FirebaseUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BF81FFCA1E7A025E00C53D37 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF81FFDA1E7A025E00C53D37 /* LaunchScreen.storyboard in Resources */,
+				BF81FFFE1E7A030400C53D37 /* GoogleService-Info.plist in Resources */,
+				BF81FFD71E7A025E00C53D37 /* Assets.xcassets in Resources */,
+				BF81FFD51E7A025E00C53D37 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF81FFDE1E7A025E00C53D37 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF81FFE91E7A025E00C53D37 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3130F59520A33F6F206BA3CA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		39A289F1D37193AF580A2B71 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sending Data to FirebaseTests/Pods-Sending Data to FirebaseTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4D02383E0D49F5D9F13180F5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sending Data to Firebase/Pods-Sending Data to Firebase-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		735642047B2170D559CDC744 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8EF2883AA0059EF5737B00BD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sending Data to Firebase/Pods-Sending Data to Firebase-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94664921572259BDD4599D80 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D12A8356A36DA9B625A01F66 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sending Data to FirebaseTests/Pods-Sending Data to FirebaseTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD8748D2E478798D29DABDA0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sending Data to FirebaseUITests/Pods-Sending Data to FirebaseUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BF81FFC81E7A025E00C53D37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF81FFD21E7A025E00C53D37 /* ViewController.swift in Sources */,
+				BF81FFD01E7A025E00C53D37 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF81FFDC1E7A025E00C53D37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF81FFE51E7A025E00C53D37 /* Sending_Data_to_FirebaseTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF81FFE71E7A025E00C53D37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF81FFF01E7A025E00C53D37 /* Sending_Data_to_FirebaseUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BF81FFE21E7A025E00C53D37 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF81FFCB1E7A025E00C53D37 /* Sending Data to Firebase */;
+			targetProxy = BF81FFE11E7A025E00C53D37 /* PBXContainerItemProxy */;
+		};
+		BF81FFED1E7A025E00C53D37 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF81FFCB1E7A025E00C53D37 /* Sending Data to Firebase */;
+			targetProxy = BF81FFEC1E7A025E00C53D37 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BF81FFD31E7A025E00C53D37 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF81FFD41E7A025E00C53D37 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BF81FFD81E7A025E00C53D37 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF81FFD91E7A025E00C53D37 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BF81FFF21E7A025E00C53D37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BF81FFF31E7A025E00C53D37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BF81FFF51E7A025E00C53D37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45040FF6630BAF43990D8B52 /* Pods-Sending Data to Firebase.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9XWYL3K4YT;
+				INFOPLIST_FILE = "Sending Data to Firebase/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Isotonic.Sending-Data-to-Firebase";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		BF81FFF61E7A025E00C53D37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A093546A1398F226A15024A /* Pods-Sending Data to Firebase.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9XWYL3K4YT;
+				INFOPLIST_FILE = "Sending Data to Firebase/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Isotonic.Sending-Data-to-Firebase";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		BF81FFF81E7A025E00C53D37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CF315D6FC7B28D468EC691C /* Pods-Sending Data to FirebaseTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Sending Data to FirebaseTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Isotonic.Sending-Data-to-FirebaseTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sending Data to Firebase.app/Sending Data to Firebase";
+			};
+			name = Debug;
+		};
+		BF81FFF91E7A025E00C53D37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1011A828D6E4D8B910FFE9E /* Pods-Sending Data to FirebaseTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Sending Data to FirebaseTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Isotonic.Sending-Data-to-FirebaseTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sending Data to Firebase.app/Sending Data to Firebase";
+			};
+			name = Release;
+		};
+		BF81FFFB1E7A025E00C53D37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB38B142EA745737C9A3B7CA /* Pods-Sending Data to FirebaseUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = "Sending Data to FirebaseUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Isotonic.Sending-Data-to-FirebaseUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "Sending Data to Firebase";
+			};
+			name = Debug;
+		};
+		BF81FFFC1E7A025E00C53D37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8CBA4E9F660E2B1F669E9EB /* Pods-Sending Data to FirebaseUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = "Sending Data to FirebaseUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Isotonic.Sending-Data-to-FirebaseUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "Sending Data to Firebase";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BF81FFC71E7A025E00C53D37 /* Build configuration list for PBXProject "Sending Data to Firebase" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF81FFF21E7A025E00C53D37 /* Debug */,
+				BF81FFF31E7A025E00C53D37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF81FFF41E7A025E00C53D37 /* Build configuration list for PBXNativeTarget "Sending Data to Firebase" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF81FFF51E7A025E00C53D37 /* Debug */,
+				BF81FFF61E7A025E00C53D37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF81FFF71E7A025E00C53D37 /* Build configuration list for PBXNativeTarget "Sending Data to FirebaseTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF81FFF81E7A025E00C53D37 /* Debug */,
+				BF81FFF91E7A025E00C53D37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF81FFFA1E7A025E00C53D37 /* Build configuration list for PBXNativeTarget "Sending Data to FirebaseUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF81FFFB1E7A025E00C53D37 /* Debug */,
+				BF81FFFC1E7A025E00C53D37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BF81FFC41E7A025E00C53D37 /* Project object */;
+}

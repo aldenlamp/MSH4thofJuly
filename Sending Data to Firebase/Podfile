@@ -1,0 +1,21 @@
+# Uncomment this line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'Sending Data to Firebase' do
+  # Comment this line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Sending Data to Firebase
+  pod 'Firebase'
+  pod 'Firebase/Database'
+  target 'Sending Data to FirebaseTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'Sending Data to FirebaseUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
