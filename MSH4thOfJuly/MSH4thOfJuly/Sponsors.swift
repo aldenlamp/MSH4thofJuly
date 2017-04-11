@@ -108,6 +108,7 @@ class Sponsors: UIViewController, UITableViewDelegate, UITableViewDataSource {
             cell.backgroundColor = UIColor.clear
             cell.titleLabel.text = cellTitle
             cell.titleLabel.adjustsFontSizeToFitWidth = true
+            print("\n\n\(cellTitle)\n\n")
             cell.sponsorImageView.image = sponsorInfo[cellTitle]?[1] as? UIImage
             if indexPath.section != 0{
                 cell.titleLabel.font = UIFont(name: "Avenir-Medium", size: 30)
@@ -135,8 +136,10 @@ class Sponsors: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cellTitle = sponsors[indexPath.section][indexPath.row]
-        performSegue(withIdentifier: "showWebview", sender: sponsorInfo[cellTitle]![0] as! String)
+        if let _ = tableView.cellForRow(at: indexPath) as? SponsorCell{
+            let cellTitle = sponsors[indexPath.section][indexPath.row]
+            performSegue(withIdentifier: "showWebview", sender: sponsorInfo[cellTitle]![0] as! String)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

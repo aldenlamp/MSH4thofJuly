@@ -14,6 +14,9 @@ var hasLoaded = false
 var sponsors : [[String]] = [[String]]()
 var sponsorInfo : [String : [Any]] = [String : [Any]]()
 
+var FAQKeys = [String]()
+var FAQValues = [String]()
+
 class Info: UIViewController {
     
     override func viewDidLoad() {
@@ -36,11 +39,40 @@ class Info: UIViewController {
         ref.observe(.value, with: {
             snapshot in
             
-            var snapshotValues = (snapshot.value! as! [String: [String : Any]])["Sponsors"]! as! [String : [String : String]]
-            print(snapshotValues)
-            print(snapshotValues.count)
-            self.count = snapshotValues.count
+            var FAQInfo = (snapshot.value! as! [String: [String : Any]])["FAQ"]! as! [String : [String : String]]
+            
+            for (_, val) in FAQInfo{
+                FAQKeys.append(val["q"])
+                FAQValues.append(val["a"])
+            }
+            
+            var snapshotValues = (snapshot.value! as! [String: [String : Any]])["sponsors"]! as! [String : [String : [String : String]]]
+            
+//            self.count = snapshotValues.count
+            
             for (key, val) in snapshotValues{
+                
+                var index = -1
+                
+                switch key{
+                case "bronze" : index = 3
+                case "silver" : index = 2
+                case "gold" : index = 1
+                case "platinum" : index = 0
+                default : index = -1
+                }
+                
+                for (sponsor, value) in val{
+                    sponsors[index].append(sponsor)
+                    sponsorInfo[sponsor] = [Any]()
+                    let website = value["link"]
+                    sponsorInfo[sponsor]?.append(website!)
+                    self.count += 1
+                }
+                
+                
+                /*
+                
                 switch (val["Level"]!){
                 case "Platinum" : sponsors[0].append(key)
                 case "Gold" : sponsors[1].append(key)
@@ -51,6 +83,7 @@ class Info: UIViewController {
                 sponsorInfo[key] = [Any]()
                 let website = val["Website"]?.replacingOccurrences(of: "__PERIOD__", with: ".")
                 sponsorInfo[key]?.append(website!)
+                */
             }
             
             self.getImages(data: snapshotValues, completion: { completion() })
@@ -58,24 +91,34 @@ class Info: UIViewController {
         })
     }
     
-    func getImages(data: [String: [String : String]], completion : @escaping () -> ()){
+    func getImages(data: [String: [String : [String : String]]], completion : @escaping () -> ()){
         let storage = FIRStorage.storage()
         var counter = 0
-        for (key, val) in data{
-            if val["Level"] != "Bronze"{
-                let pathString = "sponsors/\(val["Image"]!.replacingOccurrences(of: "__PERIOD__", with: ".")).png"
-                sponsorInfo[key]?.append(UIImage.self)
-                let pathReference = storage.reference(withPath: pathString)
-                pathReference.data(withMaxSize: 1 * 1024 * 1024) { data, error in
+        
+        for (type, stuff) in data{
+            if type != "bronze"{
+                
+                
+                for (key, val) in stuff{
                     counter += 1
-                    if error != nil{
-                        print("Tehere was an error")
-                    }else{
-                        sponsorInfo[key]?[1] = (UIImage(data: data!)!)
-                        if self.count == counter + 1{
-                            completion()
+                    sponsorInfo[key]?.append(UIImage())
+                    let pathRefrence = storage.reference(withPath: "sponsors/\(val["image"]!)")
+                    pathRefrence.data(withMaxSize: 1 * 1024 * 1024) { data, error in
+                        counter += 1
+                        if error != nil{
+                            print("Error: \(error)")
+                        }else{
+                            sponsorInfo[key]?[1] = (UIImage(data: data!)!)
+                            if self.count == counter{
+                                print(sponsorInfo)
+                                completion()
+                            }
                         }
                     }
+                }
+            }else{
+                for (key, _) in stuff{
+                    sponsorInfo[key]?.append(UIImage())
                 }
             }
         }

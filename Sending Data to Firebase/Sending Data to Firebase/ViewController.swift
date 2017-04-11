@@ -21,6 +21,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet var level: UISegmentedControl!
     
+    
+
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let ref = FIRDatabase.database().reference()
+        
+        ref.child("sponsors").child("gold").child("NewTest").child("label").setValue("A great label")
+        ref.child("sponsors").child("gold").child("NewTest").child("image").setValue("test Sponsor")
+        ref.child("sponsors").child("gold").child("NewTest").child("link").setValue("https://test.mshjuly4th.com")
+        print("\n\nviewloaded\n\n")
+        
+    }
+    
+    
     func dismissKey(){
         self.view.endEditing(true)
     }
@@ -45,7 +61,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         let imageData : String = (UIImagePNGRepresentation(iamgeVidew.image!)?.base64EncodedString())!
         
-        ref.child("Sponcers").child("\(name.text!)").child("Image").setValue(imageData)
+//        ref.child("Sponcers").child("\(name.text!)").child("Image").setValue(imageData)
         
         let webpage = website.text?.replacingOccurrences(of: ".", with: "__PERIOD__")
         

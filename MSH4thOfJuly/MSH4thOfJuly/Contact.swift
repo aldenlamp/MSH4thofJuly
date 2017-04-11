@@ -10,6 +10,8 @@ import UIKit
 import Foundation
 import MessageUI
 
+var transitionToView = false
+
 class Contact: UIViewController, MFMailComposeViewControllerDelegate {
     
     
@@ -29,6 +31,21 @@ class Contact: UIViewController, MFMailComposeViewControllerDelegate {
     @IBOutlet var FAQImage: UIImageView!
     @IBOutlet var emailImage: UIImageView!
     
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if forumView.frame.contains(touches.first!.location(in: self.view)) {
+            forums()
+        }else if emailView.frame.contains(touches.first!.location(in: self.view)){
+            emailUs()
+        }else if FAQView.frame.contains(touches.first!.location(in: self.view)){
+            FAQ()
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if transitionToView{
+            forums()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +59,7 @@ class Contact: UIViewController, MFMailComposeViewControllerDelegate {
         
         forumsButton.titleLabel?.adjustsFontSizeToFitWidth = true
         forumsButton.contentHorizontalAlignment = .left
+        forumsButton.addTarget(self, action: #selector(forums), for: .touchUpInside)
         
         forumImage.image = UIImage(named: "activity_feed_filled")
         
@@ -53,6 +71,7 @@ class Contact: UIViewController, MFMailComposeViewControllerDelegate {
         
         FAQButton.titleLabel?.adjustsFontSizeToFitWidth = true
         FAQButton.contentHorizontalAlignment = .left
+        FAQButton.addTarget(self, action: #selector(FAQ), for: .touchUpInside)
         
         FAQImage.image = UIImage(named: "faq_filled")
         
@@ -64,6 +83,7 @@ class Contact: UIViewController, MFMailComposeViewControllerDelegate {
         
         emailUsButton.titleLabel?.adjustsFontSizeToFitWidth = true
         emailUsButton.contentHorizontalAlignment = .left
+        emailUsButton.addTarget(self, action: #selector(emailUs), for: .touchUpInside)
         
         emailImage.image = UIImage(named: "message_filled")
         
@@ -76,9 +96,19 @@ class Contact: UIViewController, MFMailComposeViewControllerDelegate {
             print("test")
         }
         bottomImage.alpha = 0.7
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.black
+        self.navigationController?.navigationBar.tintColor = UIColor.black
+        
     }
     
-    @IBAction func forums(_ sender: Any) {
+    func forums() {
+        transitionToView = false
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.navigationBar.isHidden = false
         performSegue(withIdentifier: "Show Forum", sender: nil)
@@ -86,7 +116,7 @@ class Contact: UIViewController, MFMailComposeViewControllerDelegate {
     
     
     
-    @IBAction func FAQ(_ sender: Any) {
+    func FAQ() {
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.navigationBar.isHidden = false
         performSegue(withIdentifier: "Show FAQ", sender: nil)
@@ -94,7 +124,7 @@ class Contact: UIViewController, MFMailComposeViewControllerDelegate {
     
     //MARK: - Email
     
-    @IBAction func emailUs(_ sender: Any) {
+    func emailUs() {
         if MFMailComposeViewController.canSendMail(){
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
