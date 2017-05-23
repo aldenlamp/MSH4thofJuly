@@ -106,11 +106,11 @@ class Info: UIViewController, MKMapViewDelegate {
         if let a = ud.value(forKey: "hasBeenSaved"){
             
             if a as! Bool == true{
-                try FAQValues = ud.value(forKey: "FAQValues") as! [String]
-                try FAQKeys = ud.value(forKey: "FAQKeys") as! [String]
-                try sponsorInfo = ud.value(forKey: "sponsorInfo") as! [String : [Any]]
-                try sponsors = ud.value(forKey: "sponsors") as! [[String]]
-                try eventInfo = ud.value(forKey: "eventInfo") as! [String : Any]
+                FAQValues = ud.value(forKey: "FAQValues") as! [String]
+                FAQKeys = ud.value(forKey: "FAQKeys") as! [String]
+                sponsorInfo = ud.value(forKey: "sponsorInfo") as! [String : [Any]]
+                sponsors = ud.value(forKey: "sponsors") as! [[String]]
+                eventInfo = ud.value(forKey: "eventInfo") as! [String : Any]
                 loadEventInfo(data: eventInfo)
                 hasLoaded = true
             }else{
@@ -118,7 +118,7 @@ class Info: UIViewController, MKMapViewDelegate {
             }
         }else{
             hasLoaded = false
-            delay(4){
+            delay(0.1){
                 let connectedRef = FIRDatabase.database().reference(withPath: ".info/connected")
                 connectedRef.observe(.value, with: { (connected) in
                     self.delay(2){

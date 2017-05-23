@@ -122,7 +122,9 @@ class Sponsors: UIViewController, UITableViewDelegate, UITableViewDataSource {
             cell.titleLabel.text = cellTitle
             cell.titleLabel.adjustsFontSizeToFitWidth = true
 //            print("\n\(cellTitle) : \(indexPath.row) \t sponsor Info: \(sponsorInfo)\n")
-            cell.sponsorImageView.image = UIImage(data: sponsorInfo[cellTitle]?[1] as! Data)
+            if let imageData = sponsorInfo[cellTitle]?[1] as? Data{
+                cell.sponsorImageView.image = UIImage(data: imageData)
+            }
             cell.sponsorImageView.contentMode = .scaleAspectFit
             if indexPath.section != 0{
                 cell.titleLabel.font = UIFont(name: "Avenir-Medium", size: 30)

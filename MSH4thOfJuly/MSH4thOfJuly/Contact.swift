@@ -13,12 +13,7 @@ import Firebase
 
 class Contact: UIViewController, MFMailComposeViewControllerDelegate, UITableViewDelegate, UITableViewDataSource {
     
-    var sizesForAll = [Int : CGRect]()
-    var somethingTest = [Int : Bool]()
-    
-    var selectedIndex = -1
-    
-    @IBOutlet var titleLabel: UILabel!
+    var selectedIndicies = Array<Int>()
     
     @IBOutlet var emailUsButton: UIButton!
     @IBOutlet var emailView: UIView!
@@ -42,7 +37,6 @@ class Contact: UIViewController, MFMailComposeViewControllerDelegate, UITableVie
         emailView.layer.cornerRadius = 8
         emailView.backgroundColor = UIColor.clear
         
-        emailUsButton.titleLabel?.adjustsFontSizeToFitWidth = true
         emailUsButton.contentHorizontalAlignment = .left
         emailUsButton.addTarget(self, action: #selector(emailUs), for: .touchUpInside)
         
@@ -58,15 +52,7 @@ class Contact: UIViewController, MFMailComposeViewControllerDelegate, UITableVie
         tableView.backgroundColor = UIColor.clear
         tableView.separatorColor = UIColor.clear
         
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableData(_:)), name: .reload, object: nil)
-        
     }
-    
-    func reloadTableData(_ notification: Notification) {
-        tableView.reloadData()
-    }
-
-    
     
     //MARK: - TableView
     
@@ -79,14 +65,10 @@ class Contact: UIViewController, MFMailComposeViewControllerDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == selectedIndex{
-            return self.calculateHeight(indexPath: indexPath)
+        if  selectedIndicies.contains(indexPath.row){
+            return calculateHeight(indexPath: indexPath)
         }else{
-            if let a = somethingTest[indexPath.row]{
-                return a ? (sizesForAll[indexPath.row]?.size.height)! : firstViewHeight(indexPath: indexPath).size.height
-            }else{
-                return firstViewHeight(indexPath: indexPath).size.height
-            }
+                return firstViewHeight(indexPath: indexPath)
         }
     }
     
@@ -102,31 +84,11 @@ class Contact: UIViewController, MFMailComposeViewControllerDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        
-        
         let cell =  tableView.dequeueReusableCell(withIdentifier: "Cell") as! FAQCell
         cell.backgroundColor = UIColor.clear
-        
-        cell.firstView.backgroundColor = UIColor.clear
-        cell.answerView.backgroundColor = UIColor.clear
-        
-        if let a = somethingTest[indexPath.row]{
-            cell.questionLabel.frame = a ? sizesForAll[indexPath.row]! : firstViewHeight(indexPath: indexPath)
-            cell.constraint.constant = a ? sizesForAll[indexPath.row]!.height : firstViewHeight(indexPath: indexPath).height
-            cell.firstView.frame.size = a ? sizesForAll[indexPath.row]!.size : firstViewHeight(indexPath: indexPath).size
-        }else{
-            cell.questionLabel.frame = firstViewHeight(indexPath: indexPath)
-            cell.constraint.constant = firstViewHeight(indexPath: indexPath).height
-            cell.firstView.frame.size = firstViewHeight(indexPath: indexPath).size
-        }
+        cell.constraint.constant = firstViewHeight(indexPath: indexPath)
         
         cell.questionLabel.text = FAQKeys[indexPath.row]
-        
-        
-        cell.answerLabel.frame = caluclateSummaryLabelFrame(cell: cell, indexPath: indexPath)
-        
-        
         cell.answerLabel.text = FAQValues[indexPath.row]
         
         if indexPath.row != 0{
@@ -137,22 +99,15 @@ class Contact: UIViewController, MFMailComposeViewControllerDelegate, UITableVie
             cell.addSubview(cell.separator)
         }
         
-        if(indexPath.row == 3 || indexPath.row == 4){
-            print("\(indexPath.row): \t\(cell.frame.size.height)\t ")
-        }
         return cell
         
     }
     
-    var tester = [CGFloat]()
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tester.append(self.tableView(tableView, heightForRowAt: indexPath))
-        print(self.tableView(tableView, heightForRowAt: indexPath))
-        if selectedIndex == indexPath.row{
-            selectedIndex = -1
+        if selectedIndicies.contains(indexPath.row){
+            selectedIndicies.remove(at:selectedIndicies.index(of: indexPath.row)!)
         }else{
-            selectedIndex = indexPath.row
+            selectedIndicies.append(indexPath.row)
         }
         
         tableView.beginUpdates()
@@ -161,33 +116,38 @@ class Contact: UIViewController, MFMailComposeViewControllerDelegate, UITableVie
     
     
     func calculateHeight(indexPath: IndexPath) -> CGFloat{
-        let cell = self.tableView.cellForRow(at: indexPath) as! FAQCell
-        cell.answerLabel.frame = self.caluclateSummaryLabelFrame(cell: cell, indexPath: indexPath)
-        return (cell.firstView.frame.size.height) + (cell.answerLabel.frame.size.height)
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "Cell") as! FAQCell
+        let answerHeight = self.caluclateSummaryLabelFrame(cell: cell, indexPath: indexPath)
+        let questionHeight = self.firstViewHeight(indexPath: indexPath)
+        return questionHeight + answerHeight
     }
     
-    func caluclateSummaryLabelFrame(cell: FAQCell, indexPath: IndexPath) -> CGRect{
+    func caluclateSummaryLabelFrame(cell: FAQCell, indexPath: IndexPath) -> CGFloat{
         cell.answerLabel.text = FAQValues[indexPath.row]
         cell.answerLabel.numberOfLines = 0
         var frame = cell.answerLabel.frame
         let maxSize = CGSize(width: cell.answerLabel.frame.width, height: CGFloat.greatestFiniteMagnitude)
         let requiredSize = cell.answerLabel.sizeThatFits(maxSize)
-        frame.size.height = requiredSize.height + 16
-        if(indexPath.row != selectedIndex){frame.size.height = 0;}
-        return frame
+        frame.size.height = requiredSize.height + 24
+        if( selectedIndicies.contains(indexPath.row)){
+            return frame.height
+        }
+        else {
+            return 0.0
+        }
+        
     }
     
-    func firstViewHeight(indexPath: IndexPath) -> CGRect{
+    func firstViewHeight(indexPath: IndexPath) -> CGFloat{
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! FAQCell
         cell.questionLabel.text = FAQKeys[indexPath.row]
         cell.questionLabel.numberOfLines = 0
         var frame = cell.questionLabel.frame
-        let maxSize = CGSize(width: self.view.frame.width - 16, height: CGFloat.greatestFiniteMagnitude)
+        let maxSize = CGSize(width: cell.frame.width, height: CGFloat.greatestFiniteMagnitude)
         let requiredSize = cell.questionLabel.sizeThatFits(maxSize)
-        frame.size.height = requiredSize.height + 21
-        sizesForAll[indexPath.row] = frame
-        somethingTest[indexPath.row] = false
-        return frame
+        cell.constraint.constant = requiredSize.height
+        frame.size.height = requiredSize.height + 24
+        return frame.height
     }
 
     //MARK: - Email
@@ -213,10 +173,8 @@ class Contact: UIViewController, MFMailComposeViewControllerDelegate, UITableVie
 
 class FAQCell: UITableViewCell{
  
-    @IBOutlet var firstView: UIView!
     @IBOutlet var questionLabel: UILabel!
     
-    @IBOutlet var answerView: UIView!
     @IBOutlet var answerLabel: UILabel!
     
     @IBOutlet var constraint: NSLayoutConstraint!
