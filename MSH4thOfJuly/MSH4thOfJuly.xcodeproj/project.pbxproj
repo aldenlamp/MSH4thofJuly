@@ -11,8 +11,9 @@
 		74BF5C6B58AB25D02C6A3E78 /* Pods_MSH4thOfJulyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F11B7686E3F8A855C6B9D7F5 /* Pods_MSH4thOfJulyUITests.framework */; };
 		B5CB09D64B570CCED3FD9A75 /* Pods_MSH4thOfJuly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A89288550D05DC966DCDF7D /* Pods_MSH4thOfJuly.framework */; };
 		BF4385E41E7F53CE0012A24C /* SponsorWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4385E31E7F53CE0012A24C /* SponsorWebView.swift */; };
-		BF81FFC01E79F7FF00C53D37 /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF81FFBF1E79F7FF00C53D37 /* FAQ.swift */; };
-		BF81FFC21E79F80B00C53D37 /* Forum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF81FFC11E79F80B00C53D37 /* Forum.swift */; };
+		BF9CA0BB1EAE39AC00576FFB /* Wifi.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9CA0BA1EAE39AC00576FFB /* Wifi.swift */; };
+		BFCB57871EA08FD200EFEDED /* DonateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCB57861EA08FD200EFEDED /* DonateInfo.swift */; };
+		BFCB578A1EA13F7400EFEDED /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCB57891EA13F7400EFEDED /* Schedule.swift */; };
 		BFD112C21E74C43D00BDAB89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD112C11E74C43D00BDAB89 /* AppDelegate.swift */; };
 		BFD112C41E74C43D00BDAB89 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD112C31E74C43D00BDAB89 /* Info.swift */; };
 		BFD112C61E74C43D00BDAB89 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD112C51E74C43D00BDAB89 /* Contact.swift */; };
@@ -51,8 +52,9 @@
 		7B00F538493A2F985AB0CE81 /* Pods-MSH4thOfJulyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSH4thOfJulyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MSH4thOfJulyTests/Pods-MSH4thOfJulyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AC4AAF3EED7BE1489F7099DB /* Pods-MSH4thOfJulyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSH4thOfJulyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MSH4thOfJulyUITests/Pods-MSH4thOfJulyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BF4385E31E7F53CE0012A24C /* SponsorWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SponsorWebView.swift; sourceTree = "<group>"; };
-		BF81FFBF1E79F7FF00C53D37 /* FAQ.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQ.swift; sourceTree = "<group>"; };
-		BF81FFC11E79F80B00C53D37 /* Forum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forum.swift; sourceTree = "<group>"; };
+		BF9CA0BA1EAE39AC00576FFB /* Wifi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wifi.swift; sourceTree = "<group>"; };
+		BFCB57861EA08FD200EFEDED /* DonateInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonateInfo.swift; sourceTree = "<group>"; };
+		BFCB57891EA13F7400EFEDED /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		BFD112BE1E74C43D00BDAB89 /* MSH4thOfJuly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MSH4thOfJuly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD112C11E74C43D00BDAB89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFD112C31E74C43D00BDAB89 /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
@@ -127,16 +129,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BF7B19111E95391C009E2B5A /* Contact */ = {
-			isa = PBXGroup;
-			children = (
-				BFD112C51E74C43D00BDAB89 /* Contact.swift */,
-				BF81FFC11E79F80B00C53D37 /* Forum.swift */,
-				BF81FFBF1E79F7FF00C53D37 /* FAQ.swift */,
-			);
-			name = Contact;
-			sourceTree = "<group>";
-		};
 		BF7B19121E95393E009E2B5A /* Sponsors */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +136,16 @@
 				BF4385E31E7F53CE0012A24C /* SponsorWebView.swift */,
 			);
 			name = Sponsors;
+			sourceTree = "<group>";
+		};
+		BFCB57881EA08FDC00EFEDED /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				BFD112C31E74C43D00BDAB89 /* Info.swift */,
+				BFCB57861EA08FD200EFEDED /* DonateInfo.swift */,
+				BFCB57891EA13F7400EFEDED /* Schedule.swift */,
+			);
+			name = Info;
 			sourceTree = "<group>";
 		};
 		BFD112B51E74C43D00BDAB89 = {
@@ -171,8 +173,9 @@
 		BFD112C01E74C43D00BDAB89 /* MSH4thOfJuly */ = {
 			isa = PBXGroup;
 			children = (
-				BFD112C31E74C43D00BDAB89 /* Info.swift */,
-				BF7B19111E95391C009E2B5A /* Contact */,
+				BF9CA0BA1EAE39AC00576FFB /* Wifi.swift */,
+				BFCB57881EA08FDC00EFEDED /* Info */,
+				BFD112C51E74C43D00BDAB89 /* Contact.swift */,
 				BF7B19121E95393E009E2B5A /* Sponsors */,
 				BFD112FD1E74F36A00BDAB89 /* DonateWebSite.swift */,
 				BFD112C71E74C43D00BDAB89 /* Main.storyboard */,
@@ -489,12 +492,13 @@
 			files = (
 				BFD112F21E74C55000BDAB89 /* Sponsors.swift in Sources */,
 				BFD112C61E74C43D00BDAB89 /* Contact.swift in Sources */,
-				BF81FFC21E79F80B00C53D37 /* Forum.swift in Sources */,
-				BF81FFC01E79F7FF00C53D37 /* FAQ.swift in Sources */,
+				BF9CA0BB1EAE39AC00576FFB /* Wifi.swift in Sources */,
 				BF4385E41E7F53CE0012A24C /* SponsorWebView.swift in Sources */,
 				BFD112C21E74C43D00BDAB89 /* AppDelegate.swift in Sources */,
 				BFD112FE1E74F36A00BDAB89 /* DonateWebSite.swift in Sources */,
 				BFD112C41E74C43D00BDAB89 /* Info.swift in Sources */,
+				BFCB578A1EA13F7400EFEDED /* Schedule.swift in Sources */,
+				BFCB57871EA08FD200EFEDED /* DonateInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

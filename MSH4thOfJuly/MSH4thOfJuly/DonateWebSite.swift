@@ -8,27 +8,38 @@
 
 import UIKit
 
-class DonateWebSite: UIViewController, UIWebViewDelegate {
+class DonateWebSite: UIViewController {
 
-    @IBOutlet var webView: UIWebView!
     
-    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet var titleLaebl: UILabel!
+    
+    @IBOutlet var donateButton: UIButton!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityIndicator.layer.zPosition = 1
         
-        activityIndicator.sizeToFit()
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.startAnimating()
-        let url = NSURL (string: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=23TANJM9SJPGJ");
-        let request = NSURLRequest(url: url! as URL);
-        webView.loadRequest(request as URLRequest);
-        webView.delegate = self
+        titleLaebl.adjustsFontSizeToFitWidth = true
+        
+        donateButton.layer.cornerRadius = 8
+        donateButton.layer.masksToBounds = true
+        donateButton.layer.borderColor = UIColor.black.cgColor
+        donateButton.layer.borderWidth = 4
+        
+        donateButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        donateButton.titleLabel?.textColor = UIColor.black
+        donateButton.titleLabel?.font = UIFont(name: "Avenir-Heavy", size: 27)
+        donateButton.tintColor = UIColor.black
+        
+        donate("")
     }
     
-    func webViewDidFinishLoad(_ webView: UIWebView) {
-        activityIndicator.stopAnimating()
+    
+    @IBAction func donate(_ sender: Any) {
+        
+        UIApplication.shared.openURL(NSURL(string: "http://donate.mshjuly4th.com/")! as URL)
+        
     }
     
 }

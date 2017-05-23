@@ -9,71 +9,32 @@
 import UIKit
 import Foundation
 import MessageUI
+import Firebase
 
-var transitionToView = false
-
-class Contact: UIViewController, MFMailComposeViewControllerDelegate {
+class Contact: UIViewController, MFMailComposeViewControllerDelegate, UITableViewDelegate, UITableViewDataSource {
     
+    var sizesForAll = [Int : CGRect]()
+    var somethingTest = [Int : Bool]()
+    
+    var selectedIndex = -1
     
     @IBOutlet var titleLabel: UILabel!
     
-    @IBOutlet var bottomImage: UIImageView!
-    
-    @IBOutlet var forumsButton: UIButton!
-    @IBOutlet var FAQButton: UIButton!
     @IBOutlet var emailUsButton: UIButton!
-    
-    @IBOutlet var forumView: UIView!
-    @IBOutlet var FAQView: UIView!
     @IBOutlet var emailView: UIView!
-    
-    @IBOutlet var forumImage: UIImageView!
-    @IBOutlet var FAQImage: UIImageView!
     @IBOutlet var emailImage: UIImageView!
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if forumView.frame.contains(touches.first!.location(in: self.view)) {
-            forums()
-        }else if emailView.frame.contains(touches.first!.location(in: self.view)){
-            emailUs()
-        }else if FAQView.frame.contains(touches.first!.location(in: self.view)){
-            FAQ()
-        }
-    }
+    @IBOutlet var tableView: UITableView!
     
-    override func viewDidAppear(_ animated: Bool) {
-        if transitionToView{
-            forums()
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if emailView.frame.contains(touches.first!.location(in: self.view)){
+            emailUs()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
-        
-        forumView.layer.borderColor = UIColor.black.cgColor
-        forumView.layer.borderWidth = 4
-        forumView.layer.masksToBounds = true
-        forumView.layer.cornerRadius = 8
-        forumView.backgroundColor = UIColor.clear
-        
-        forumsButton.titleLabel?.adjustsFontSizeToFitWidth = true
-        forumsButton.contentHorizontalAlignment = .left
-        forumsButton.addTarget(self, action: #selector(forums), for: .touchUpInside)
-        
-        forumImage.image = UIImage(named: "activity_feed_filled")
-        
-        FAQView.layer.borderColor = UIColor.black.cgColor
-        FAQView.layer.borderWidth = 4
-        FAQView.layer.masksToBounds = true
-        FAQView.layer.cornerRadius = 8
-        FAQView.backgroundColor = UIColor.clear
-        
-        FAQButton.titleLabel?.adjustsFontSizeToFitWidth = true
-        FAQButton.contentHorizontalAlignment = .left
-        FAQButton.addTarget(self, action: #selector(FAQ), for: .touchUpInside)
-        
-        FAQImage.image = UIImage(named: "faq_filled")
         
         emailView.layer.borderColor = UIColor.black.cgColor
         emailView.layer.borderWidth = 4
@@ -87,41 +48,148 @@ class Contact: UIViewController, MFMailComposeViewControllerDelegate {
         
         emailImage.image = UIImage(named: "message_filled")
         
-        if UIDevice.current.showImage{
-            bottomImage.isHidden = false
-            forumView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 30).isActive = true
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.sectionHeaderHeight = 4
+        
+        tableView.estimatedRowHeight = 40
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.backgroundColor = UIColor.clear
+        tableView.separatorColor = UIColor.clear
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableData(_:)), name: .reload, object: nil)
+        
+    }
+    
+    func reloadTableData(_ notification: Notification) {
+        tableView.reloadData()
+    }
+
+    
+    
+    //MARK: - TableView
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return FAQKeys.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == selectedIndex{
+            return self.calculateHeight(indexPath: indexPath)
         }else{
-            bottomImage.isHidden = true
-            forumView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 50).isActive = true
-            print("test")
+            if let a = somethingTest[indexPath.row]{
+                return a ? (sizesForAll[indexPath.row]?.size.height)! : firstViewHeight(indexPath: indexPath).size.height
+            }else{
+                return firstViewHeight(indexPath: indexPath).size.height
+            }
         }
-        bottomImage.alpha = 0.7
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        let secondView = UIView(frame: CGRect(x: 20, y: 0, width: self.view.frame.width - 40, height: 4))
+        secondView.backgroundColor = UIColor.black
+        secondView.layer.masksToBounds = true
+        secondView.layer.cornerRadius = 4
+        view.backgroundColor = UIColor.clear
+        view.addSubview(secondView)
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.view.backgroundColor = .clear
         
-        self.navigationController?.navigationBar.tintColor = UIColor.black
-        self.navigationController?.navigationBar.tintColor = UIColor.black
+        
+        let cell =  tableView.dequeueReusableCell(withIdentifier: "Cell") as! FAQCell
+        cell.backgroundColor = UIColor.clear
+        
+        cell.firstView.backgroundColor = UIColor.clear
+        cell.answerView.backgroundColor = UIColor.clear
+        
+        if let a = somethingTest[indexPath.row]{
+            cell.questionLabel.frame = a ? sizesForAll[indexPath.row]! : firstViewHeight(indexPath: indexPath)
+            cell.constraint.constant = a ? sizesForAll[indexPath.row]!.height : firstViewHeight(indexPath: indexPath).height
+            cell.firstView.frame.size = a ? sizesForAll[indexPath.row]!.size : firstViewHeight(indexPath: indexPath).size
+        }else{
+            cell.questionLabel.frame = firstViewHeight(indexPath: indexPath)
+            cell.constraint.constant = firstViewHeight(indexPath: indexPath).height
+            cell.firstView.frame.size = firstViewHeight(indexPath: indexPath).size
+        }
+        
+        cell.questionLabel.text = FAQKeys[indexPath.row]
+        
+        
+        cell.answerLabel.frame = caluclateSummaryLabelFrame(cell: cell, indexPath: indexPath)
+        
+        
+        cell.answerLabel.text = FAQValues[indexPath.row]
+        
+        if indexPath.row != 0{
+            cell.separator.frame = CGRect(x: 20, y: 0, width: self.view.frame.width - 40, height: 4)
+            cell.separator.layer.masksToBounds = true
+            cell.separator.layer.cornerRadius = 4
+            cell.separator.backgroundColor = UIColor.black
+            cell.addSubview(cell.separator)
+        }
+        
+        if(indexPath.row == 3 || indexPath.row == 4){
+            print("\(indexPath.row): \t\(cell.frame.size.height)\t ")
+        }
+        return cell
         
     }
     
-    func forums() {
-        transitionToView = false
-        self.tabBarController?.tabBar.isHidden = true
-        self.navigationController?.navigationBar.isHidden = false
-        performSegue(withIdentifier: "Show Forum", sender: nil)
+    var tester = [CGFloat]()
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tester.append(self.tableView(tableView, heightForRowAt: indexPath))
+        print(self.tableView(tableView, heightForRowAt: indexPath))
+        if selectedIndex == indexPath.row{
+            selectedIndex = -1
+        }else{
+            selectedIndex = indexPath.row
+        }
+        
+        tableView.beginUpdates()
+        tableView.endUpdates()
     }
     
     
-    
-    func FAQ() {
-        self.tabBarController?.tabBar.isHidden = true
-        self.navigationController?.navigationBar.isHidden = false
-        performSegue(withIdentifier: "Show FAQ", sender: nil)
+    func calculateHeight(indexPath: IndexPath) -> CGFloat{
+        let cell = self.tableView.cellForRow(at: indexPath) as! FAQCell
+        cell.answerLabel.frame = self.caluclateSummaryLabelFrame(cell: cell, indexPath: indexPath)
+        return (cell.firstView.frame.size.height) + (cell.answerLabel.frame.size.height)
     }
     
+    func caluclateSummaryLabelFrame(cell: FAQCell, indexPath: IndexPath) -> CGRect{
+        cell.answerLabel.text = FAQValues[indexPath.row]
+        cell.answerLabel.numberOfLines = 0
+        var frame = cell.answerLabel.frame
+        let maxSize = CGSize(width: cell.answerLabel.frame.width, height: CGFloat.greatestFiniteMagnitude)
+        let requiredSize = cell.answerLabel.sizeThatFits(maxSize)
+        frame.size.height = requiredSize.height + 16
+        if(indexPath.row != selectedIndex){frame.size.height = 0;}
+        return frame
+    }
+    
+    func firstViewHeight(indexPath: IndexPath) -> CGRect{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! FAQCell
+        cell.questionLabel.text = FAQKeys[indexPath.row]
+        cell.questionLabel.numberOfLines = 0
+        var frame = cell.questionLabel.frame
+        let maxSize = CGSize(width: self.view.frame.width - 16, height: CGFloat.greatestFiniteMagnitude)
+        let requiredSize = cell.questionLabel.sizeThatFits(maxSize)
+        frame.size.height = requiredSize.height + 21
+        sizesForAll[indexPath.row] = frame
+        somethingTest[indexPath.row] = false
+        return frame
+    }
+
     //MARK: - Email
     
     func emailUs() {
@@ -143,33 +211,16 @@ class Contact: UIViewController, MFMailComposeViewControllerDelegate {
     }
 }
 
-public extension UIDevice {
+class FAQCell: UITableViewCell{
+ 
+    @IBOutlet var firstView: UIView!
+    @IBOutlet var questionLabel: UILabel!
     
-    var showImage: Bool {
-        var systemInfo = utsname()
-        uname(&systemInfo)
-        let machineMirror = Mirror(reflecting: systemInfo.machine)
-        let identifier = machineMirror.children.reduce("") { identifier, element in
-            guard let value = element.value as? Int8, value != 0 else { return identifier }
-            return identifier + String(UnicodeScalar(UInt8(value)))
-        }
-        
-        switch identifier {
-        case "iPhone3,1", "iPhone3,2", "iPhone3,3": return false        //"iPhone 4"
-        case "iPhone4,1":                           return false        //"iPhone 4s"
-        case "iPhone5,1", "iPhone5,2":              return false        //"iPhone 5"
-        case "iPhone5,3", "iPhone5,4":              return false        //"iPhone 5c"
-        case "iPhone6,1", "iPhone6,2":              return false        //"iPhone 5s"
-        case "iPhone7,2":                           return true         //"iPhone 6"
-        case "iPhone7,1":                           return true         //"iPhone 6 Plus"
-        case "iPhone8,1":                           return true         //"iPhone 6s"
-        case "iPhone8,2":                           return true         //"iPhone 6s Plus"
-        case "iPhone9,1", "iPhone9,3":              return true         //"iPhone 7"
-        case "iPhone9,2", "iPhone9,4":              return true         //"iPhone 7 Plus"
-        case "iPhone8,4":                           return false        //"iPhone SE"
-        case "i386", "x86_64":                      return true         //Simulator
-        default:                                    return false
-        }
-    }
+    @IBOutlet var answerView: UIView!
+    @IBOutlet var answerLabel: UILabel!
+    
+    @IBOutlet var constraint: NSLayoutConstraint!
+    
+    let separator = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 4))
     
 }
