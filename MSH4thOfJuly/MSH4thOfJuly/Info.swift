@@ -134,6 +134,7 @@ class Info: UIViewController, MKMapViewDelegate {
         }
         
         getSponsorInfo(completion: {
+            print("COMPLETED")
             hasLoaded = true
             self.saveData()
             
@@ -310,6 +311,7 @@ class Info: UIViewController, MKMapViewDelegate {
                 for (_, val) in stuff{
                     sponsorInfo[val["label"]!]?.append("")
                 }
+                counter += 1
             }
         }
         

@@ -143,7 +143,8 @@ class Contact: UIViewController, MFMailComposeViewControllerDelegate, UITableVie
         cell.questionLabel.text = FAQKeys[indexPath.row]
         cell.questionLabel.numberOfLines = 0
         var frame = cell.questionLabel.frame
-        let maxSize = CGSize(width: cell.frame.width, height: CGFloat.greatestFiniteMagnitude)
+        frame.size.width = self.view.frame.width - 15
+        let maxSize = CGSize(width: self.view.frame.width - 15, height: CGFloat.greatestFiniteMagnitude)
         let requiredSize = cell.questionLabel.sizeThatFits(maxSize)
         cell.constraint.constant = requiredSize.height
         frame.size.height = requiredSize.height + 24
